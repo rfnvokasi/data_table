@@ -1,7 +1,11 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use App\Exports\MahasiswaExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\BiodataMahasiswa;
 use Illuminate\Support\Facades\Validator;
@@ -111,5 +115,10 @@ class BiodataController extends Controller
         $data = \App\BiodataMahasiswa::find($id);
         $data->delete($data);
         return redirect()->route("biodata.index")->with('sukses','Data Berhasil dihapus');
+    }
+
+    public function exportMahasiswa() 
+    {
+        return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
     }
 }
