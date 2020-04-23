@@ -11,7 +11,7 @@
                 <th>NAMA</th>
                 <th>NIM</th>
                 <th>ALAMAT</th>
-                <th>ACTION</th>
+                {{-- <th>ACTION</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -21,11 +21,11 @@
                 <td>{{ $data->name }}</td>
                 <td>{{$data->nim}}</td>
                 <td>{{$data->address}}</td>
-                <td>
+                {{-- <td>
                 <a href="{{ route('biodata.show', ['id' => $data->id]) }}" class="btn btn-success">Detail</a>
                 <a href="{{ route('biodata.edit', ['id' => $data->id]) }}" class="btn btn-warning">Edit</a>
                 <a href="{{ route('biodata.destroy', ['id'=> $data->id]) }}" onclick="return confirm('Yakin mau dihapus ?')" class="btn btn-danger">Delete</a>
-                </td>
+                </td> --}}
                 </tr>
             @empty
                 <tr>
