@@ -2,7 +2,8 @@
 
 
 namespace App\Http\Controllers;
-
+use DataTables;
+use Yajra\DataTables\Html\Builder;
 use App\Exports\MahasiswaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
@@ -10,8 +11,7 @@ use Illuminate\Http\Request;
 use App\BiodataMahasiswa;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\UpdateBiodata;
-use DataTables;
-use Yajra\DataTables\Html\Builder;
+
 
 class BiodataController extends Controller
 {
