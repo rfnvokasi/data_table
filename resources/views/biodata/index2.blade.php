@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($mahasiswa as $data)
+            @forelse ($html as $data)
                 <tr>
                 <td>{{ $data->id }}</td>
                 <td>{{ $data->name }}</td>
