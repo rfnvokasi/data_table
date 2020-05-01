@@ -2,17 +2,6 @@
 
 return [
 
-        "driver" => "smtp",
-        "host" => "smtp.mailtrap.io",
-        "port" => 2525,
-        "from" => array(
-            "address" => "from@example.com",
-            "name" => "Example"
-        ),
-        "username" => "3edd5f8546e82f",
-        "password" => "2ab35ff0fc31ae",
-        "sendmail" => "/usr/sbin/sendmail -bs",
-
     /*
     |--------------------------------------------------------------------------
     | Mail Driver
@@ -22,8 +11,8 @@ return [
     | sending of e-mail. You may specify which one you're using throughout
     | your application here. By default, Laravel is setup for SMTP mail.
     |
-    | Supported: "smtp", "sendmail", "mailgun", "ses",
-    |            "postmark", "log", "array"
+    | Supported: "smtp", "sendmail", "mailgun", "mandrill", "ses",
+    |            "sparkpost", "postmark", "log", "array"
     |
     */
 

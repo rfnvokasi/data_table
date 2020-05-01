@@ -6,12 +6,12 @@ use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class MailCOntroller extends Controller
+class MailController extends Controller
 {
     public function send()
     {
-        Mail::to("user1@biodata-mahasiswa.com")->send(new WelcomeEmail());
+        Mail::to("user@mhs.com")->send(new WelcomeEmail());
 
-        return response()->json("Email send successfully");
+        return response()->json("Email Send Successfully");
     }
 }

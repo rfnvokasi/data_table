@@ -12,19 +12,40 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('dashboard');
 });
 
-Route::get("/login", "LoginController@showLoginForm")->name("login.index");
-Route::post("/login", "LoginController@login")->name("login.login");
-Route::get("/logout", "LoginController@logout")->name("logout.login");
-//list-mahasiswa
-Route::get("/biodata-mahasiswa/export_excel",'BiodataController@exportMahasiswa');
-Route::get('/biodata-mahasiswa', "BiodataController@index")->name("biodata.index")->middleware("web");
-Route::get("/bidata-mahasiswa/{id}/detail", "BiodataController@show")->name("biodata.show");
-Route::get("/biodata-mahasiswa/create", "BiodataController@create")->name("biodata.create");
-Route::post("/biodata-mahasiswa", "BiodataController@store")->name("biodata.store");
-Route::get("/biodata-mahasiswa/{id}/edit", "BiodataController@edit")->name("biodata.edit")->middleware("web");
-Route::post("/biodata-mahasiswa/{id}/update", "BiodataController@update")->name("biodata.update")->middleware("web");
-Route::get("/biodata-mahasiswa/{id}/delete", "BiodataController@destroy")->name("biodata.destroy");
+
+Route::get("/login", "HomeController@index")
+	->name("login");
+Route::post("/login", "HomeController@login")->name("login.login");
+
+Route::get("/logout", "HomeController@logout")->name("logout");
+
+Route::resource("mahasiswa", "MahasiswaController")->middleware("web");
+
+Route::get('/excel', 'MahasiswaController@export_excel')->name('mahasiswa.excel');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+//List mahasiswa
+// Route::middleware("auth")->group(function(){
+Route::get("/mahasiswa", "MahasiswaController@index")
+	->name("mahasiswa.index");
+Route::get("/biodata-mahasiswa/{id}/detail", "MahasiswaController@show")
+	->name("mahasiswa.show");
+Route::get("/mahasiswa/create", "MahasiswaController@create")
+	->name("mahasiswa.create");
+Route::post("/mahasiswa", "MahasiswaController@store")
+	->name("mahasiswa.store");
+Route::get("/mahasiswa/{id}/edit", "MahasiswaController@edit")
+	->name("mahasiswa.edit");
+Route::post("/mahasiswa/{id}/update", "MahasiswaController@update")
+	->name("mahasiswa.update");
+Route::get("/mahasiswa/{id}/delete", "MahasiswaController@destroy")
+	->name("mahasiswa.destroy");
+// });
+
 Route::get("/mail/send", "MailController@send");

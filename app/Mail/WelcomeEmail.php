@@ -28,9 +28,11 @@ class WelcomeEmail extends Mailable
      */
     public function build()
     {
-        return $this->from("admin@biodata-mahasiswa.com")
-        ->to("user1@biodata-mahasiswa.com")
-        ->subject("This is test email")
-        ->view('mail.template');
+        return $this->from("admin@mhs.com")
+            ->to("user@mhs.com")
+            ->subject("this is test email")      
+            ->view('mail.template');
     }
 }
+
+

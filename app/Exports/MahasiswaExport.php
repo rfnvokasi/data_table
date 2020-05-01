@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\BiodataMahasiswa;
+use App\Mahasiswa;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class MahasiswaExport implements FromCollection
@@ -12,6 +12,6 @@ class MahasiswaExport implements FromCollection
     */
     public function collection()
     {
-        return BiodataMahasiswa::all();
+        return Mahasiswa::all();
     }
 }
